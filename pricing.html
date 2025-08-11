@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing - Recipeez</title>
+    <meta name="description" content="Choose your Recipeez plan - Free tier with basic features or Premium subscription with unlimited recipes, cloud sync, and advanced features.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <style>
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-2xl);
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .pricing-card {
+            background: var(--white);
+            border-radius: var(--radius-xl);
+            padding: var(--spacing-2xl);
+            box-shadow: 0 4px 20px var(--shadow);
+            text-align: center;
+            position: relative;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px var(--shadow-hover);
+        }
+        
+        .pricing-card.featured {
+            border: 3px solid var(--secondary-green);
+            transform: scale(1.05);
+        }
+        
+        .pricing-card.featured::before {
+            content: "Most Popular";
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--secondary-green);
+            color: var(--white);
+            padding: var(--spacing-xs) var(--spacing-lg);
+            border-radius: var(--radius-lg);
+            font-size: var(--font-size-sm);
+            font-weight: 600;
+        }
+        
+        .pricing-card h3 {
+            color: var(--primary-brown);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .pricing-price {
+            font-size: var(--font-size-4xl);
+            font-weight: 700;
+            color: var(--primary-brown);
+            margin: var(--spacing-lg) 0;
+        }
+        
+        .pricing-period {
+            color: var(--text-medium);
+            font-size: var(--font-size-lg);
+        }
+        
+        .pricing-features {
+            list-style: none;
+            margin: var(--spacing-2xl) 0;
+            text-align: left;
+        }
+        
+        .pricing-features li {
+            padding: var(--spacing-xs) 0;
+            display: flex;
+            align-items: flex-start;
+            gap: var(--spacing-sm);
+        }
+        
+        .pricing-features li::before {
+            content: "✓";
+            color: var(--secondary-green);
+            font-weight: bold;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+        
+        .pricing-features li.unavailable {
+            color: var(--text-light);
+            text-decoration: line-through;
+        }
+        
+        .pricing-features li.unavailable::before {
+            content: "✕";
+            color: var(--text-light);
+        }
+        
+        .comparison-table {
+            max-width: 800px;
+            margin: var(--spacing-4xl) auto 0;
+            background: var(--white);
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: 0 4px 20px var(--shadow);
+        }
+        
+        .comparison-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .comparison-table th,
+        .comparison-table td {
+            padding: var(--spacing-lg);
+            text-align: left;
+            border-bottom: 1px solid var(--cream-bg);
+        }
+        
+        .comparison-table th {
+            background: var(--light-cream);
+            font-weight: 600;
+            color: var(--primary-brown);
+        }
+        
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .check-mark {
+            color: var(--secondary-green);
+            font-weight: bold;
+        }
+        
+        .x-mark {
+            color: var(--text-light);
+        }
+        
+        @media (max-width: 768px) {
+            .pricing-card.featured {
+                transform: none;
+            }
+            
+            .comparison-table {
+                overflow-x: auto;
+            }
+            
+            .comparison-table table {
+                min-width: 500px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <a href="/" class="logo">Recipeez</a>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="/features">Features</a></li>
+                    <li><a href="/pricing">Pricing</a></li>
+                    <li><a href="/support">Support</a></li>
+                    <li><a href="/about">About</a></li>
+                </ul>
+                <button class="mobile-menu-toggle" aria-label="Toggle menu">☰</button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1>Choose Your Plan</h1>
+                <p>Start free, upgrade when you're ready. No hidden fees, cancel anytime.</p>
+            </div>
+        </section>
+
+        <!-- Pricing Cards -->
+        <section class="features">
+            <div class="container">
+                <div class="pricing-grid">
+                    <!-- Free Plan -->
+                    <div class="pricing-card">
+                        <h3>Free</h3>
+                        <div class="pricing-price">$0<span class="pricing-period">/month</span></div>
+                        <p>Perfect for trying out Recipeez</p>
+                        
+                        <ul class="pricing-features">
+                            <li>Up to 50 recipes</li>
+                            <li>Basic recipe creation</li>
+                            <li>Photo uploads (local storage)</li>
+                            <li>Simple organization</li>
+                            <li>Basic search</li>
+                            <li class="unavailable">Cloud sync</li>
+                            <li class="unavailable">Meal planning</li>
+                            <li class="unavailable">Shopping lists</li>
+                            <li class="unavailable">Advanced search</li>
+                        </ul>
+                        
+                        <a href="#" class="btn btn-outline" style="width: 100%;">Download Free</a>
+                    </div>
+                    
+                    <!-- Premium Plan -->
+                    <div class="pricing-card featured">
+                        <h3>Premium</h3>
+                        <div class="pricing-price">$2.99<span class="pricing-period">/month</span></div>
+                        <p>Full-featured recipe management</p>
+                        
+                        <ul class="pricing-features">
+                            <li>Unlimited recipes</li>
+                            <li>Advanced recipe editor</li>
+                            <li>Cloud photo storage</li>
+                            <li>Cross-device sync</li>
+                            <li>Smart recipe import</li>
+                            <li>Meal planning calendar</li>
+                            <li>Auto shopping lists</li>
+                            <li>Advanced search & filters</li>
+                            <li>Priority support</li>
+                            <li>Early access to features</li>
+                        </ul>
+                        
+                        <a href="#" class="btn btn-primary" style="width: 100%;">Start Free Trial</a>
+                        <p style="margin-top: var(--spacing-sm); font-size: var(--font-size-sm); color: var(--text-medium);">14-day free trial, then $2.99/month</p>
+                    </div>
+                    
+                    <!-- Annual Plan -->
+                    <div class="pricing-card">
+                        <h3>Premium Annual</h3>
+                        <div class="pricing-price">$29.99<span class="pricing-period">/year</span></div>
+                        <p>Save 17% with annual billing</p>
+                        
+                        <ul class="pricing-features">
+                            <li>Everything in Premium</li>
+                            <li>2 months free (vs monthly)</li>
+                            <li>Priority feature requests</li>
+                            <li>Exclusive cooking tips</li>
+                            <li>Beta feature access</li>
+                        </ul>
+                        
+                        <a href="#" class="btn btn-secondary" style="width: 100%;">Choose Annual</a>
+                        <p style="margin-top: var(--spacing-sm); font-size: var(--font-size-sm); color: var(--text-medium);">14-day free trial, then $29.99/year</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Feature Comparison -->
+        <section class="features">
+            <div class="container">
+                <h2>Detailed Comparison</h2>
+                <div class="comparison-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Feature</th>
+                                <th>Free</th>
+                                <th>Premium</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Recipe Storage</strong></td>
+                                <td>50 recipes</td>
+                                <td>Unlimited</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Photo Storage</strong></td>
+                                <td>Local device only</td>
+                                <td>Cloud storage included</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Device Sync</strong></td>
+                                <td><span class="x-mark">✕</span></td>
+                                <td><span class="check-mark">✓</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>URL Import</strong></td>
+                                <td><span class="x-mark">✕</span></td>
+                                <td><span class="check-mark">✓</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Meal Planning</strong></td>
+                                <td><span class="x-mark">✕</span></td>
+                                <td><span class="check-mark">✓</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Shopping Lists</strong></td>
+                                <td><span class="x-mark">✕</span></td>
+                                <td><span class="check-mark">✓</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Advanced Search</strong></td>
+                                <td>Basic search only</td>
+                                <td>Full text & filter search</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Recipe Categories</strong></td>
+                                <td>Basic categories</td>
+                                <td>Custom categories & tags</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Backup & Export</strong></td>
+                                <td><span class="x-mark">✕</span></td>
+                                <td>Coming soon</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Customer Support</strong></td>
+                                <td>Community support</td>
+                                <td>Priority email support</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="features">
+            <div class="container">
+                <h2>Pricing FAQ</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <h3>Can I cancel anytime?</h3>
+                        <p>Yes! You can cancel your subscription at any time through the app settings or by contacting support. No cancellation fees or complex processes.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <h3>What happens to my data if I cancel?</h3>
+                        <p>Your recipes remain yours forever. After cancellation, you'll be moved to the free plan (50 recipe limit) and can still access all your data locally.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <h3>Do you offer student discounts?</h3>
+                        <p>We're working on student and family discounts! Contact us at <a href="mailto:support@recipeez.app">support@recipeez.app</a> and we'll let you know when they're available.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <h3>Is the free trial really free?</h3>
+                        <p>Absolutely! No credit card required. Try all premium features for 14 days, then decide if you want to subscribe. No surprises or hidden charges.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <h3>How does billing work?</h3>
+                        <p>Billing is handled through the App Store (iOS) or Google Play (Android). You can manage your subscription through your device's subscription settings.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <h3>What payment methods do you accept?</h3>
+                        <p>We accept all payment methods supported by the App Store and Google Play, including credit cards, PayPal, and gift cards.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Coming Soon -->
+        <section class="features">
+            <div class="container">
+                <h2>Coming Soon</h2>
+                <div style="text-align: center; max-width: 600px; margin: 0 auto;">
+                    <div class="feature-card">
+                        <span class="feature-icon">👨‍👩‍👧‍👦</span>
+                        <h3>Family Plan</h3>
+                        <p><strong>$4.99/month</strong> for up to 5 family members</p>
+                        <ul style="text-align: left; margin: var(--spacing-lg) 0;">
+                            <li>All Premium features for each member</li>
+                            <li>Shared family recipe collections</li>
+                            <li>Collaborative meal planning</li>
+                            <li>Shopping list sharing</li>
+                            <li>Family admin controls</li>
+                        </ul>
+                        <p><em>Perfect for families who love cooking together!</em></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="hero">
+            <div class="container">
+                <h2>Ready to Get Started?</h2>
+                <p>Try Recipeez Premium free for 14 days. No credit card required.</p>
+                <div class="hero-buttons">
+                    <a href="#" class="btn btn-primary">Start Free Trial</a>
+                    <a href="#" class="btn btn-outline">Download Free Version</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Recipeez</h3>
+                    <p>Your personal recipe collection, beautiful, private, and always with you.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Product</h3>
+                    <ul>
+                        <li><a href="/features">Features</a></li>
+                        <li><a href="/pricing">Pricing</a></li>
+                        <li><a href="#download">Download</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="/support">Help Center</a></li>
+                        <li><a href="/support#contact">Contact Us</a></li>
+                        <li><a href="/support#faq">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="/about">About</a></li>
+                        <li><a href="/privacy">Privacy</a></li>
+                        <li><a href="/terms">Terms</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Recipeez. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/assets/js/main.js"></script>
+</body>
+</html>

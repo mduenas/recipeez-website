@@ -1,0 +1,12 @@
+{
+  "name": "recipeez-website",
+  "version": "1.0.0",
+  "description": "Marketing website for Recipeez app",
+  "scripts": {
+    "build": "echo 'No build step required for static site'",
+    "serve": "python3 -m http.server 8000"
+  },
+  "keywords": ["recipes", "cooking", "app", "ios", "android"],
+  "author": "Recipeez",
+  "license": "MIT"
+}

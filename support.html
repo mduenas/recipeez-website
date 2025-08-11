@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support - Recipeez</title>
+    <meta name="description" content="Get help with Recipeez - FAQ, tutorials, contact support, and troubleshooting guides for the recipe management app.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <style>
+        .faq-item {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            margin-bottom: var(--spacing-lg);
+            box-shadow: 0 2px 10px var(--shadow);
+            overflow: hidden;
+        }
+        
+        .faq-question {
+            padding: var(--spacing-lg);
+            background: var(--light-cream);
+            cursor: pointer;
+            border: none;
+            width: 100%;
+            text-align: left;
+            font-weight: 600;
+            color: var(--primary-brown);
+            font-size: var(--font-size-lg);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .faq-question:hover {
+            background: var(--cream-bg);
+        }
+        
+        .faq-answer {
+            padding: 0 var(--spacing-lg) var(--spacing-lg);
+            display: none;
+            line-height: 1.6;
+        }
+        
+        .faq-answer.active {
+            display: block;
+        }
+        
+        .faq-icon {
+            transition: transform 0.3s;
+        }
+        
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+        
+        .contact-form {
+            background: var(--white);
+            padding: var(--spacing-2xl);
+            border-radius: var(--radius-xl);
+            box-shadow: 0 4px 20px var(--shadow);
+        }
+        
+        .form-group {
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: var(--spacing-xs);
+            font-weight: 500;
+            color: var(--primary-brown);
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: var(--spacing-sm);
+            border: 2px solid var(--cream-bg);
+            border-radius: var(--radius-md);
+            font-size: var(--font-size-base);
+            transition: border-color 0.3s;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--secondary-green);
+        }
+        
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <a href="/" class="logo">Recipeez</a>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="/features">Features</a></li>
+                    <li><a href="/pricing">Pricing</a></li>
+                    <li><a href="/support">Support</a></li>
+                    <li><a href="/about">About</a></li>
+                </ul>
+                <button class="mobile-menu-toggle" aria-label="Toggle menu">☰</button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1>How Can We Help You?</h1>
+                <p>Find answers to common questions or get in touch with our support team.</p>
+            </div>
+        </section>
+
+        <!-- Quick Help -->
+        <section class="features">
+            <div class="container">
+                <h2>Quick Help</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <span class="feature-icon">🔍</span>
+                        <h3>Getting Started</h3>
+                        <p>New to Recipeez? Learn the basics of creating your first recipe, adding photos, and organizing your collection.</p>
+                        <a href="#getting-started" class="btn btn-outline">Learn More</a>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <span class="feature-icon">📱</span>
+                        <h3>Import Recipes</h3>
+                        <p>Learn how to import recipes from websites, add them manually, or transfer from other apps.</p>
+                        <a href="#importing" class="btn btn-outline">See Guide</a>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <span class="feature-icon">🔄</span>
+                        <h3>Sync & Backup</h3>
+                        <p>Understand how your recipes sync across devices and how to backup your data safely.</p>
+                        <a href="#sync" class="btn btn-outline">View Tips</a>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <span class="feature-icon">🛠️</span>
+                        <h3>Troubleshooting</h3>
+                        <p>Having issues? Check our troubleshooting guide for solutions to common problems.</p>
+                        <a href="#troubleshooting" class="btn btn-outline">Get Help</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="features" id="faq">
+            <div class="container">
+                <h2>Frequently Asked Questions</h2>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        How do I import a recipe from a website?
+                        <span class="faq-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Importing recipes is easy! Simply:</p>
+                        <ol>
+                            <li>Copy the URL of the recipe page</li>
+                            <li>Open Recipeez and tap the "+" button</li>
+                            <li>Select "Import from URL"</li>
+                            <li>Paste the URL and tap "Import"</li>
+                            <li>Review and edit the imported recipe as needed</li>
+                        </ol>
+                        <p>Our smart extraction works with most popular recipe websites including AllRecipes, Food Network, Bon Appétit, and many more.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        How do I transfer my account to a new device?
+                        <span class="faq-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Account transfer is coming soon! For now, here's what you can do:</p>
+                        <ol>
+                            <li>Keep your old device until the transfer feature is available</li>
+                            <li>Contact us at <a href="mailto:support@recipeez.app">support@recipeez.app</a> for manual transfer assistance</li>
+                            <li>We're working on a one-click transfer feature that will be available in a future update</li>
+                        </ol>
+                        <p>Your anonymous account is tied to your device, so manual assistance is currently required for transfers.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        What's included in the premium subscription?
+                        <span class="faq-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Premium subscription includes:</p>
+                        <ul>
+                            <li>Unlimited recipes (vs 50 in free tier)</li>
+                            <li>Cloud sync across all devices</li>
+                            <li>Photo storage for recipe images</li>
+                            <li>Meal planning calendar</li>
+                            <li>Shopping list generation</li>
+                            <li>Advanced search and filtering</li>
+                            <li>Priority customer support</li>
+                            <li>Early access to new features</li>
+                        </ul>
+                        <p>Try premium free for 14 days, then $2.99/month or $29.99/year.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Why don't you require an email to sign up?
+                        <span class="faq-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>We believe in privacy-first design. Here's why we use anonymous authentication:</p>
+                        <ul>
+                            <li><strong>Instant Access:</strong> Start using the app immediately without forms</li>
+                            <li><strong>Complete Privacy:</strong> No way to link your recipes to your identity</li>
+                            <li><strong>Less Spam:</strong> No email means no promotional emails (unless you want them)</li>
+                            <li><strong>Data Security:</strong> Less personal data means less risk if there's ever a breach</li>
+                            <li><strong>Focus on Cooking:</strong> Spend time on recipes, not account management</li>
+                        </ul>
+                        <p>Your data is still secure and backed up using your anonymous device ID.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        How do I backup my recipes?
+                        <span class="faq-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Your recipes are automatically backed up to the cloud with your premium subscription. Here's how backup works:</p>
+                        <ul>
+                            <li><strong>Automatic Sync:</strong> All recipes and photos sync to secure cloud storage</li>
+                            <li><strong>Multiple Devices:</strong> Access your recipes on any device you sign into</li>
+                            <li><strong>Offline Access:</strong> Recipes cached locally for offline use</li>
+                            <li><strong>Manual Export:</strong> Data export feature coming soon for additional backup</li>
+                        </ul>
+                        <p>Free tier stores data locally on your device only.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Can I share my recipes with others?
+                        <span class="faq-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Recipe sharing features are in development! Here's what's planned:</p>
+                        <ul>
+                            <li><strong>Individual Sharing:</strong> Share specific recipes via link</li>
+                            <li><strong>Recipe Collections:</strong> Create and share themed collections</li>
+                            <li><strong>Community Recipes:</strong> Browse recipes shared by other users</li>
+                            <li><strong>Family Sharing:</strong> Share with family members privately</li>
+                        </ul>
+                        <p>For now, you can manually copy and send recipe text to others.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Form -->
+        <section class="features" id="contact">
+            <div class="container">
+                <h2>Still Need Help?</h2>
+                <div style="max-width: 600px; margin: 0 auto;">
+                    <div class="contact-form">
+                        <form id="support-form">
+                            <div class="form-group">
+                                <label for="subject">Subject</label>
+                                <select id="subject" name="subject" required>
+                                    <option value="">Select a topic</option>
+                                    <option value="bug">Bug Report</option>
+                                    <option value="feature">Feature Request</option>
+                                    <option value="account">Account Issues</option>
+                                    <option value="import">Recipe Import Problems</option>
+                                    <option value="subscription">Subscription Questions</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Email (Optional)</label>
+                                <input type="email" id="email" name="email" placeholder="your@email.com">
+                                <small>Only needed if you want a response</small>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="device">Device & OS (Optional)</label>
+                                <input type="text" id="device" name="device" placeholder="iPhone 15, iOS 17.2">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" required placeholder="Describe your issue or question in detail..."></textarea>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+                        </form>
+                    </div>
+                    
+                    <div style="text-align: center; margin-top: var(--spacing-xl); color: var(--text-medium);">
+                        <p>Or email us directly:</p>
+                        <p><strong>General Support:</strong> <a href="mailto:support@recipeez.app">support@recipeez.app</a></p>
+                        <p><strong>Bug Reports:</strong> <a href="mailto:bugs@recipeez.app">bugs@recipeez.app</a></p>
+                        <p><strong>Feature Requests:</strong> <a href="mailto:feedback@recipeez.app">feedback@recipeez.app</a></p>
+                        <p><em>We typically respond within 24-48 hours</em></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Recipeez</h3>
+                    <p>Your personal recipe collection, beautiful, private, and always with you.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Product</h3>
+                    <ul>
+                        <li><a href="/features">Features</a></li>
+                        <li><a href="/pricing">Pricing</a></li>
+                        <li><a href="#download">Download</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="/support">Help Center</a></li>
+                        <li><a href="/support#contact">Contact Us</a></li>
+                        <li><a href="/support#faq">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="/about">About</a></li>
+                        <li><a href="/privacy">Privacy</a></li>
+                        <li><a href="/terms">Terms</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Recipeez. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/assets/js/main.js"></script>
+    <script>
+        // FAQ functionality
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const faqItem = button.parentElement;
+                const faqAnswer = faqItem.querySelector('.faq-answer');
+                const isActive = faqItem.classList.contains('active');
+                
+                // Close all other FAQ items
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    item.classList.remove('active');
+                    item.querySelector('.faq-answer').classList.remove('active');
+                });
+                
+                // Toggle current item
+                if (!isActive) {
+                    faqItem.classList.add('active');
+                    faqAnswer.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Recipeez</title>
+    <meta name="description" content="Learn about Recipeez - the story behind the privacy-first recipe app, our mission, technology, and future roadmap.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <style>
+        .about-content {
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+        
+        .mission-card {
+            background: linear-gradient(135deg, var(--secondary-green), #45a049);
+            color: var(--white);
+            padding: var(--spacing-3xl);
+            border-radius: var(--radius-xl);
+            text-align: center;
+            margin: var(--spacing-3xl) 0;
+        }
+        
+        .mission-card h2 {
+            color: var(--white);
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .tech-stack {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: var(--spacing-lg);
+            margin: var(--spacing-2xl) 0;
+        }
+        
+        .tech-item {
+            background: var(--white);
+            padding: var(--spacing-lg);
+            border-radius: var(--radius-lg);
+            text-align: center;
+            box-shadow: 0 2px 10px var(--shadow);
+        }
+        
+        .tech-icon {
+            font-size: var(--font-size-2xl);
+            margin-bottom: var(--spacing-sm);
+            display: block;
+        }
+        
+        .timeline {
+            position: relative;
+            margin: var(--spacing-3xl) 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 30px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: var(--secondary-green);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: var(--spacing-2xl);
+            padding-left: var(--spacing-4xl);
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 18px;
+            top: var(--spacing-sm);
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: var(--secondary-green);
+        }
+        
+        .timeline-date {
+            font-weight: 600;
+            color: var(--secondary-green);
+            font-size: var(--font-size-sm);
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        .timeline-title {
+            font-weight: 600;
+            color: var(--primary-brown);
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-xl);
+            margin: var(--spacing-3xl) 0;
+        }
+        
+        .value-item {
+            text-align: center;
+        }
+        
+        .value-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--light-cream);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto var(--spacing-lg);
+            font-size: var(--font-size-xl);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <a href="/" class="logo">Recipeez</a>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="/features">Features</a></li>
+                    <li><a href="/pricing">Pricing</a></li>
+                    <li><a href="/support">Support</a></li>
+                    <li><a href="/about">About</a></li>
+                </ul>
+                <button class="mobile-menu-toggle" aria-label="Toggle menu">☰</button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1>About Recipeez</h1>
+                <p>The story behind the privacy-first recipe app that puts you in control of your culinary creations.</p>
+            </div>
+        </section>
+
+        <!-- Story Section -->
+        <section class="features">
+            <div class="container">
+                <div class="about-content">
+                    <h2>Our Story</h2>
+                    <p>Recipeez was born from a simple frustration: every recipe app wanted too much personal information, tried to do too many things, and didn't respect the fact that <strong>your recipes are yours</strong>.</p>
+                    
+                    <p>We believe cooking is personal. Your grandmother's secret recipe, your late-night kitchen experiments, your family's holiday traditions – these aren't just ingredients and instructions. They're memories, creativity, and personal history.</p>
+                    
+                    <p>That's why we built Recipeez differently. No email signup. No social media integration. No data mining. Just a beautiful, powerful app that helps you collect, organize, and enjoy your recipes while keeping them completely private.</p>
+                    
+                    <div class="mission-card">
+                        <h2>Our Mission</h2>
+                        <p>To create the most beautiful and private recipe management experience possible, where your culinary creativity belongs to you and stays with you forever.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Values -->
+        <section class="features">
+            <div class="container">
+                <h2>Our Values</h2>
+                <div class="values-grid">
+                    <div class="value-item">
+                        <div class="value-icon">🔒</div>
+                        <h3>Privacy First</h3>
+                        <p>Your data is yours. No tracking, no profiling, no selling your information. Anonymous authentication keeps you completely private.</p>
+                    </div>
+                    
+                    <div class="value-item">
+                        <div class="value-icon">🎆</div>
+                        <h3>Beautiful Design</h3>
+                        <p>Good food deserves beautiful presentation. Our interface is carefully crafted to make recipe management a joy, not a chore.</p>
+                    </div>
+                    
+                    <div class="value-item">
+                        <div class="value-icon">⚙️</div>
+                        <h3>Powerful Simplicity</h3>
+                        <p>Advanced features that don't get in your way. Everything you need for recipe management, nothing you don't.</p>
+                    </div>
+                    
+                    <div class="value-item">
+                        <div class="value-icon">👍</div>
+                        <h3>User-Driven</h3>
+                        <p>Every feature exists because users asked for it. We build what real home cooks actually need and want.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technology -->
+        <section class="features">
+            <div class="container">
+                <h2>Technology Stack</h2>
+                <p style="text-align: center; margin-bottom: var(--spacing-2xl); max-width: 600px; margin-left: auto; margin-right: auto;">Built with modern, proven technologies to ensure reliability, security, and performance across all platforms.</p>
+                
+                <div class="tech-stack">
+                    <div class="tech-item">
+                        <span class="tech-icon">🌐</span>
+                        <h4>Kotlin Multiplatform</h4>
+                        <p>Single codebase for iOS and Android</p>
+                    </div>
+                    
+                    <div class="tech-item">
+                        <span class="tech-icon">🎨</span>
+                        <h4>Compose Multiplatform</h4>
+                        <p>Modern UI framework for beautiful interfaces</p>
+                    </div>
+                    
+                    <div class="tech-item">
+                        <span class="tech-icon">🔥</span>
+                        <h4>Firebase</h4>
+                        <p>Google's secure backend infrastructure</p>
+                    </div>
+                    
+                    <div class="tech-item">
+                        <span class="tech-icon">☁️</span>
+                        <h4>Cloud Storage</h4>
+                        <p>Encrypted photo storage and backup</p>
+                    </div>
+                    
+                    <div class="tech-item">
+                        <span class="tech-icon">🛡️</span>
+                        <h4>Material Design 3</h4>
+                        <p>Consistent, accessible design system</p>
+                    </div>
+                    
+                    <div class="tech-item">
+                        <span class="tech-icon">🔍</span>
+                        <h4>AI-Powered Import</h4>
+                        <p>Smart recipe extraction from URLs</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Roadmap -->
+        <section class="features">
+            <div class="container">
+                <h2>Development Roadmap</h2>
+                <div class="about-content">
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-date">Q1 2025</div>
+                            <div class="timeline-title">App Store Launch</div>
+                            <p>Initial release on iOS and Android app stores with core recipe management features, photo galleries, and anonymous authentication.</p>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-date">Q2 2025</div>
+                            <div class="timeline-title">Smart Import & Meal Planning</div>
+                            <p>URL recipe import, meal planning calendar, shopping list generation, and advanced search capabilities.</p>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-date">Q3 2025</div>
+                            <div class="timeline-title">Data Portability & Sharing</div>
+                            <p>One-click data export, account transfer between devices, and selective recipe sharing features.</p>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-date">Q4 2025</div>
+                            <div class="timeline-title">AI & Community Features</div>
+                            <p>AI recipe suggestions, OCR for photo import, cooking mode with timers, and community recipe discovery.</p>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-date">2026</div>
+                            <div class="timeline-title">Advanced Features</div>
+                            <p>Nutritional information, family sharing plans, voice commands, and smart kitchen integrations.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Philosophy -->
+        <section class="features">
+            <div class="container">
+                <div class="about-content">
+                    <h2>Our Philosophy on Data</h2>
+                    <p>In an age where apps collect every detail about your life, we've chosen a different path. We believe:</p>
+                    
+                    <ul style="margin: var(--spacing-lg) 0; font-size: var(--font-size-lg);">
+                        <li><strong>Your recipes are your intellectual property.</strong> We never claim ownership or rights to your content.</li>
+                        <li><strong>Privacy shouldn't be a premium feature.</strong> Anonymous authentication is available to all users, free and paid.</li>
+                        <li><strong>Simplicity leads to better security.</strong> The less personal data we collect, the less there is to protect or potentially breach.</li>
+                        <li><strong>Transparency builds trust.</strong> Our privacy policy is written in plain English and explains exactly what we do (and don't do) with your data.</li>
+                    </ul>
+                    
+                    <h2>Why We're Different</h2>
+                    <p>Most recipe apps are built around advertising, data collection, or social features. We're built around <em>you</em> – the home cook who just wants a beautiful, private space to store and organize recipes.</p>
+                    
+                    <p>We make money through our subscription model, not by selling your data. This alignment means we're incentivized to build features you'll love and use, not features that extract more data for advertisers.</p>
+                    
+                    <h2>Looking Forward</h2>
+                    <p>We're just getting started. Our roadmap is driven by feedback from real users who cook real meals for real families. Every feature we add is designed to make your cooking life easier while maintaining our commitment to privacy and simplicity.</p>
+                    
+                    <p>Thank you for trusting us with your recipes. We take that responsibility seriously and are committed to earning that trust every day.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section class="hero">
+            <div class="container">
+                <h2>Get in Touch</h2>
+                <p>Questions? Feedback? Just want to say hello? We'd love to hear from you.</p>
+                <div class="hero-buttons">
+                    <a href="mailto:hello@recipeez.app" class="btn btn-primary">Say Hello</a>
+                    <a href="/support" class="btn btn-outline">Get Support</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Recipeez</h3>
+                    <p>Your personal recipe collection, beautiful, private, and always with you.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Product</h3>
+                    <ul>
+                        <li><a href="/features">Features</a></li>
+                        <li><a href="/pricing">Pricing</a></li>
+                        <li><a href="#download">Download</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="/support">Help Center</a></li>
+                        <li><a href="/support#contact">Contact Us</a></li>
+                        <li><a href="/support#faq">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="/about">About</a></li>
+                        <li><a href="/privacy">Privacy</a></li>
+                        <li><a href="/terms">Terms</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Recipeez. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/assets/js/main.js"></script>
+</body>
+</html>
