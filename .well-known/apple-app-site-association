@@ -3,7 +3,7 @@
     "apps": [],
     "details": [
       {
-        "appID": "TEAMID.com.markduenas.recipes",
+        "appID": "A8AAE5A4T6.com.markduenas.recipes",
         "paths": [
           "/shared/*",
           "/recipe/*",
@@ -11,7 +11,7 @@
         ]
       },
       {
-        "appID": "TEAMID.com.markduenas.recipesapp",
+        "appID": "A8AAE5A4T6.com.markduenas.recipesapp",
         "paths": [
           "/shared/*",
           "/recipe/*",
@@ -22,8 +22,8 @@
   },
   "webcredentials": {
     "apps": [
-      "TEAMID.com.markduenas.recipes",
-      "TEAMID.com.markduenas.recipesapp"
+      "A8AAE5A4T6.com.markduenas.recipes",
+      "A8AAE5A4T6.com.markduenas.recipesapp"
     ]
   }
 }

@@ -5,8 +5,8 @@
       "namespace": "android_app",
       "package_name": "com.markduenas.recipes",
       "sha256_cert_fingerprints": [
-        "REPLACE_WITH_YOUR_DEBUG_SHA256",
-        "REPLACE_WITH_YOUR_RELEASE_SHA256"
+        "85:C2:84:49:F2:B2:6B:C7:D0:C9:98:34:A8:0B:2B:ED:F0:A4:94:B8:2F:D6:EF:2A:B5:09:14:A6:01:F3:E8:19",
+        "4E:79:B8:5C:5D:AE:D9:72:76:2E:79:50:77:8A:75:A6:D4:76:C6:FF:8F:0F:AE:97:06:79:C1:CF:CB:0D:29:1E"
       ]
     }
   }
