@@ -261,9 +261,15 @@ header {
 
 .features-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: var(--spacing-2xl);
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--spacing-lg);
   margin-bottom: var(--spacing-4xl);
+}
+
+@media (min-width: 1024px) {
+  .features-grid {
+    gap: var(--spacing-xl);
+  }
 }
 
 .feature-card {
