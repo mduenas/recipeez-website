@@ -267,14 +267,14 @@ header {
 
 .features-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: var(--spacing-md);
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: var(--spacing-sm);
   margin-bottom: var(--spacing-4xl);
 }
 
 @media (min-width: 1024px) {
   .features-grid {
-    gap: var(--spacing-xl);
+    gap: var(--spacing-md);
   }
 }
 
