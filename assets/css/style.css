@@ -267,7 +267,7 @@ header {
 
 .features-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
   gap: var(--spacing-xs);
   margin-bottom: var(--spacing-4xl);
 }
@@ -280,7 +280,7 @@ header {
 
 .feature-card {
   background: var(--light-cream);
-  padding: var(--spacing-xl) var(--spacing-lg);
+  padding: var(--spacing-lg) var(--spacing-md);
   border-radius: var(--radius-xl);
   box-shadow: 0 4px 20px var(--shadow);
   transition: transform 0.3s, box-shadow 0.3s;
