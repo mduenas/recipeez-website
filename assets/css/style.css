@@ -221,6 +221,72 @@ header {
   color: var(--white);
 }
 
+/* App Store Buttons */
+.app-store-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.2;
+  transition: all 0.2s ease;
+  border: none;
+  min-width: 150px;
+  height: 60px;
+}
+
+.app-store-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.app-store-button.ios {
+  background: #000000;
+  color: #ffffff;
+}
+
+.app-store-button.ios:hover {
+  background: #1a1a1a;
+}
+
+.app-store-button.android {
+  background: #01875f;
+  color: #ffffff;
+}
+
+.app-store-button.android:hover {
+  background: #016b4d;
+}
+
+.app-store-button .store-icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+  flex-shrink: 0;
+}
+
+.app-store-button .store-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 1;
+}
+
+.app-store-button .store-text-small {
+  font-size: 10px;
+  opacity: 0.8;
+  margin-bottom: 2px;
+}
+
+.app-store-button .store-text-large {
+  font-size: 16px;
+  font-weight: 600;
+}
+
 /* Hero Section */
 .hero {
   background: linear-gradient(135deg, var(--light-cream) 0%, var(--cream-bg) 100%);

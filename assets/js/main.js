@@ -162,16 +162,17 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // Download button tracking (placeholder for analytics)
-    const downloadButtons = document.querySelectorAll('.btn-primary, .btn-secondary');
+    const downloadButtons = document.querySelectorAll('.btn-primary, .btn-secondary, .app-store-button');
     downloadButtons.forEach(button => {
         button.addEventListener('click', function(e) {
             // Placeholder for analytics tracking
-            console.log('Download button clicked:', this.textContent);
+            const buttonText = this.textContent || this.innerText;
+            console.log('Download button clicked:', buttonText.trim());
 
-            // Only prevent default for placeholder links, allow real App Store links
+            // Only prevent default for placeholder links, allow real store links
             if (this.href === '#' || this.href.endsWith('#')) {
                 e.preventDefault();
-                alert('Coming soon! Android version is currently in development.');
+                alert('Coming soon! This feature is currently in development.');
             }
         });
     });
