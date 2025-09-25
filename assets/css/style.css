@@ -225,7 +225,7 @@ header {
 .app-store-button {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   padding: 12px 20px;
   border-radius: 8px;
   text-decoration: none;
@@ -235,8 +235,9 @@ header {
   line-height: 1.2;
   transition: all 0.2s ease;
   border: none;
-  min-width: 150px;
+  width: 200px;
   height: 60px;
+  flex-shrink: 0;
 }
 
 .app-store-button:hover {
@@ -311,6 +312,7 @@ header {
   display: flex;
   gap: var(--spacing-lg);
   justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
   margin-bottom: var(--spacing-4xl);
 }
@@ -499,6 +501,11 @@ footer {
   .hero-buttons {
     flex-direction: column;
     align-items: center;
+    gap: var(--spacing-md);
+  }
+
+  .app-store-button {
+    width: 200px;
   }
   
   .features-grid {
