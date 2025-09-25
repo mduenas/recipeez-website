@@ -309,12 +309,17 @@ header {
 }
 
 .hero-buttons {
-  display: flex;
-  flex-direction: column;
+  display: flex !important;
+  flex-direction: column !important;
   gap: var(--spacing-md);
   justify-content: center;
   align-items: center;
   margin-bottom: var(--spacing-4xl);
+}
+
+.hero-buttons .app-store-button {
+  display: block;
+  margin: 0 auto var(--spacing-sm);
 }
 
 .hero-image {
