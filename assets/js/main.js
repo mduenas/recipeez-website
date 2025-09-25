@@ -167,11 +167,11 @@ document.addEventListener('DOMContentLoaded', function() {
         button.addEventListener('click', function(e) {
             // Placeholder for analytics tracking
             console.log('Download button clicked:', this.textContent);
-            
-            // For now, prevent default since we don't have actual app store links
+
+            // Only prevent default for placeholder links, allow real App Store links
             if (this.href === '#' || this.href.endsWith('#')) {
                 e.preventDefault();
-                alert('App store links coming soon! The app is currently in development.');
+                alert('Coming soon! Android version is currently in development.');
             }
         });
     });
