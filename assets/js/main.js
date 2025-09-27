@@ -162,11 +162,11 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // Download button tracking (placeholder for analytics)
-    const downloadButtons = document.querySelectorAll('.btn-primary, .btn-secondary, .app-store-button');
+    const downloadButtons = document.querySelectorAll('.btn-primary, .btn-secondary, .store-badge');
     downloadButtons.forEach(button => {
         button.addEventListener('click', function(e) {
             // Placeholder for analytics tracking
-            const buttonText = this.textContent || this.innerText;
+            const buttonText = this.getAttribute('alt') || this.textContent || this.innerText;
             console.log('Download button clicked:', buttonText.trim());
 
             // Only prevent default for placeholder links, allow real store links
