@@ -221,18 +221,18 @@ header {
   color: var(--white);
 }
 
-/* Official App Store and Google Play Buttons */
+/* Official App Store and Google Play Buttons - Container Method */
 .store-badge {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 180px;
+  position: relative;
+  display: inline-block;
+  width: 200px;
   height: 60px;
   transition: all 0.2s ease;
   text-decoration: none;
   border-radius: 8px;
   overflow: hidden;
   background: transparent;
+  border: 1px solid transparent;
 }
 
 .store-badge:hover {
@@ -240,20 +240,26 @@ header {
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
 }
 
-/* App Store badge - smaller, more compact */
-.store-badge img[src*="apple"] {
-  height: 60px;
-  width: auto;
+.store-badge img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: auto;
   object-fit: contain;
   display: block;
 }
 
-/* Google Play badge - needs to be scaled down due to built-in padding */
+/* App Store badge - needs padding to match Google Play's built-in padding */
+.store-badge img[src*="apple"] {
+  width: 88%;
+  margin: 6% 6%;
+}
+
+/* Google Play badge - uses full container since it has built-in padding */
 .store-badge img[src*="play.google.com"] {
-  height: 45px;
-  width: auto;
-  object-fit: contain;
-  display: block;
+  width: 100%;
 }
 
 /* Hero Section */
@@ -476,16 +482,17 @@ footer {
   }
 
   .store-badge {
-    width: 160px;
-    height: 50px;
+    width: 180px;
+    height: 54px;
   }
 
   .store-badge img[src*="apple"] {
-    height: 50px;
+    width: 88%;
+    margin: 6% 6%;
   }
 
   .store-badge img[src*="play.google.com"] {
-    height: 38px;
+    width: 100%;
   }
   
   .features-grid {
