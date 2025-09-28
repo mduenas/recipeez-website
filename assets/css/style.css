@@ -223,9 +223,11 @@ header {
 
 /* Official App Store and Google Play Buttons */
 .store-badge {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 180px;
   height: 60px;
-  width: auto;
   transition: all 0.2s ease;
   text-decoration: none;
   border-radius: 8px;
@@ -238,9 +240,19 @@ header {
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
 }
 
-.store-badge img {
-  height: 100%;
+/* App Store badge - smaller, more compact */
+.store-badge img[src*="apple"] {
+  height: 60px;
   width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+/* Google Play badge - needs to be scaled down due to built-in padding */
+.store-badge img[src*="play.google.com"] {
+  height: 45px;
+  width: auto;
+  object-fit: contain;
   display: block;
 }
 
@@ -464,7 +476,16 @@ footer {
   }
 
   .store-badge {
+    width: 160px;
     height: 50px;
+  }
+
+  .store-badge img[src*="apple"] {
+    height: 50px;
+  }
+
+  .store-badge img[src*="play.google.com"] {
+    height: 38px;
   }
   
   .features-grid {
