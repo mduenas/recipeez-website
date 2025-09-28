@@ -224,36 +224,21 @@ header {
 /* Official App Store and Google Play Buttons */
 .store-badge {
   display: inline-block;
-  height: 48px;
+  margin: 0 8px;
   transition: all 0.2s ease;
   text-decoration: none;
-  overflow: hidden;
-  background: transparent;
-  vertical-align: middle;
-  margin: 0 8px;
 }
 
 .store-badge:hover {
   transform: translateY(-2px);
-  filter: brightness(0.95);
+  opacity: 0.9;
 }
 
 .store-badge img {
-  height: 48px;
-  width: auto;
+  width: 160px;
+  height: auto;
   display: block;
-}
-
-/* Specific sizing for each badge type */
-.store-badge img[src*="apple"] {
-  height: 48px;
-  width: auto;
-}
-
-.store-badge img[src*="play.google.com"] {
-  height: 64px;
-  margin-top: -8px;
-  margin-bottom: -8px;
+  vertical-align: middle;
 }
 
 /* Hero Section */
@@ -476,22 +461,11 @@ footer {
   }
 
   .store-badge {
-    height: 44px;
     margin: 0 4px;
   }
 
   .store-badge img {
-    height: 44px;
-  }
-
-  .store-badge img[src*="apple"] {
-    height: 44px;
-  }
-
-  .store-badge img[src*="play.google.com"] {
-    height: 58px;
-    margin-top: -7px;
-    margin-bottom: -7px;
+    width: 140px;
   }
   
   .features-grid {
