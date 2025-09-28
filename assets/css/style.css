@@ -229,6 +229,15 @@ header {
   vertical-align: middle;
 }
 
+/* Specific adjustments for browser compatibility */
+.hero-buttons a img[src*="apple"] {
+  height: 48px;
+}
+
+.hero-buttons a img[src*="play.google.com"] {
+  height: 58px; /* 20% larger than App Store button */
+}
+
 /* Hero Section */
 .hero {
   background: linear-gradient(135deg, var(--light-cream) 0%, var(--cream-bg) 100%);
@@ -447,6 +456,14 @@ footer {
   .hero-buttons a img {
     height: 40px;
     margin: 0 5px;
+  }
+
+  .hero-buttons a img[src*="apple"] {
+    height: 40px;
+  }
+
+  .hero-buttons a img[src*="play.google.com"] {
+    height: 48px; /* 20% larger for mobile */
   }
   
   .features-grid {
