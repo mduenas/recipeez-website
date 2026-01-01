@@ -299,13 +299,8 @@ let trendingRecipesData = [];
 
 // Load trending recipes on page load
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('Trending recipes init starting...');
-    const trendingGrid = document.getElementById('trending-grid');
-    console.log('trending-grid element:', trendingGrid);
-    if (trendingGrid) {
+    if (document.getElementById('trending-grid')) {
         loadTrendingRecipes();
-    } else {
-        console.log('trending-grid not found!');
     }
 
     // Setup modal event listeners
@@ -326,23 +321,17 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 async function loadTrendingRecipes() {
-    console.log('loadTrendingRecipes called');
     const grid = document.getElementById('trending-grid');
     const errorContainer = document.getElementById('trending-error');
 
-    if (!grid) {
-        console.log('grid not found in loadTrendingRecipes');
-        return;
-    }
+    if (!grid) return;
 
     // Show loading state
     grid.innerHTML = generateSkeletonCards(6);
     if (errorContainer) errorContainer.style.display = 'none';
 
     try {
-        console.log('Fetching trending recipes...');
         const response = await fetch('/api/trending-recipes');
-        console.log('Fetch response:', response.status);
 
         if (!response.ok) {
             throw new Error('HTTP error! status: ' + response.status);
