@@ -5,6 +5,10 @@ let db;
 function initializeFirebase() {
   if (!admin.apps.length) {
     const serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT);
+    // Fix private key newlines that get escaped in environment variables
+    if (serviceAccount.private_key) {
+      serviceAccount.private_key = serviceAccount.private_key.replace(/\\n/g, '\n');
+    }
     admin.initializeApp({
       credential: admin.credential.cert(serviceAccount),
       projectId: 'recipeapp-13bdc'
