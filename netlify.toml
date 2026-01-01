@@ -1,6 +1,16 @@
 [build]
-  command = "echo 'No build step required for static site'"
+  command = "npm install"
   publish = "."
+  functions = "netlify/functions"
+
+[functions]
+  node_bundler = "esbuild"
+
+# API endpoint for trending recipes
+[[redirects]]
+  from = "/api/trending-recipes"
+  to = "/.netlify/functions/trending-recipes"
+  status = 200
 
 [[redirects]]
   from = "/features"

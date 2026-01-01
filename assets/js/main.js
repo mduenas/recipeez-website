@@ -291,3 +291,206 @@ function throttle(func, limit) {
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = { debounce, throttle };
 }
+
+// ============ Trending Recipes Functionality ============
+
+// Store recipe data for modal display
+let trendingRecipesData = [];
+
+// Load trending recipes on page load
+document.addEventListener('DOMContentLoaded', function() {
+    if (document.getElementById('trending-grid')) {
+        loadTrendingRecipes();
+    }
+
+    // Setup modal event listeners
+    const modal = document.getElementById('recipe-modal');
+    if (modal) {
+        modal.querySelector('.modal-close').addEventListener('click', closeRecipeModal);
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeRecipeModal();
+            }
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.classList.contains('active')) {
+                closeRecipeModal();
+            }
+        });
+    }
+});
+
+async function loadTrendingRecipes() {
+    const grid = document.getElementById('trending-grid');
+    const errorContainer = document.getElementById('trending-error');
+
+    if (!grid) return;
+
+    // Show loading state
+    grid.innerHTML = generateSkeletonCards(6);
+    errorContainer.style.display = 'none';
+
+    try {
+        const response = await fetch('/api/trending-recipes');
+
+        if (!response.ok) {
+            throw new Error('HTTP error! status: ' + response.status);
+        }
+
+        const data = await response.json();
+
+        if (!data.success || !data.recipes || data.recipes.length === 0) {
+            throw new Error('No recipes available');
+        }
+
+        trendingRecipesData = data.recipes;
+        grid.innerHTML = data.recipes.map(recipe => generateRecipeCard(recipe)).join('');
+
+        // Add click handlers to cards
+        grid.querySelectorAll('.recipe-card').forEach(card => {
+            card.addEventListener('click', () => openRecipeModal(card.dataset.recipeId));
+            card.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    openRecipeModal(card.dataset.recipeId);
+                }
+            });
+        });
+
+    } catch (error) {
+        console.error('Failed to load trending recipes:', error);
+        grid.innerHTML = '';
+        errorContainer.style.display = 'block';
+    }
+}
+
+function generateSkeletonCards(count) {
+    let html = '';
+    for (let i = 0; i < count; i++) {
+        html += '<div class="recipe-skeleton" aria-hidden="true">' +
+            '<div class="skeleton-image"></div>' +
+            '<div class="skeleton-content">' +
+            '<div class="skeleton-title"></div>' +
+            '<div class="skeleton-meta"></div>' +
+            '</div></div>';
+    }
+    return html;
+}
+
+function generateRecipeCard(recipe) {
+    const imageHtml = recipe.imageUrl
+        ? '<img class="recipe-card-image" src="' + escapeHtml(recipe.imageUrl) + '" alt="' + escapeHtml(recipe.title) + '" loading="lazy">'
+        : '<div class="recipe-card-image placeholder">🍳</div>';
+
+    const totalTime = (recipe.prepTime || 0) + (recipe.cookTime || 0);
+    const difficultyClass = (recipe.difficulty || 'BEGINNER').toLowerCase();
+
+    return '<article class="recipe-card" data-recipe-id="' + escapeHtml(recipe.id) + '" tabindex="0" role="button" aria-label="View ' + escapeHtml(recipe.title) + ' recipe">' +
+        imageHtml +
+        '<div class="recipe-card-content">' +
+        '<h3 class="recipe-card-title">' + escapeHtml(recipe.title) + '</h3>' +
+        '<p class="recipe-card-description">' + escapeHtml(recipe.description || '') + '</p>' +
+        '<div class="recipe-card-meta">' +
+        (totalTime > 0 ? '<span>⏱️ ' + totalTime + ' min</span>' : '') +
+        (recipe.servings ? '<span>👥 ' + recipe.servings + ' servings</span>' : '') +
+        '<span class="difficulty-badge ' + difficultyClass + '">' + formatDifficulty(recipe.difficulty) + '</span>' +
+        '</div>' +
+        '<div class="recipe-card-stats">' +
+        '<span class="recipe-stat"><span class="icon">❤️</span> ' + formatNumber(recipe.likeCount || 0) + '</span>' +
+        '<span class="recipe-stat"><span class="icon">👁️</span> ' + formatNumber(recipe.viewCount || 0) + '</span>' +
+        '<span class="recipe-stat"><span class="icon">🔖</span> ' + formatNumber(recipe.saveCount || 0) + '</span>' +
+        '</div></div></article>';
+}
+
+function openRecipeModal(recipeId) {
+    const recipe = trendingRecipesData.find(r => r.id === recipeId);
+    if (!recipe) return;
+
+    const modal = document.getElementById('recipe-modal');
+
+    // Populate modal content
+    const modalImage = document.getElementById('modal-image');
+    if (recipe.imageUrl) {
+        modalImage.src = recipe.imageUrl;
+        modalImage.alt = recipe.title;
+        modalImage.style.display = 'block';
+    } else {
+        modalImage.style.display = 'none';
+    }
+
+    document.getElementById('modal-title').textContent = recipe.title;
+    document.getElementById('modal-description').textContent = recipe.description || 'No description available.';
+
+    // Meta info
+    const totalTime = (recipe.prepTime || 0) + (recipe.cookTime || 0);
+    let metaHtml = '';
+    if (totalTime > 0) metaHtml += '<span>⏱️ ' + totalTime + ' min total</span>';
+    if (recipe.prepTime) metaHtml += '<span>📋 ' + recipe.prepTime + ' min prep</span>';
+    if (recipe.cookTime) metaHtml += '<span>🔥 ' + recipe.cookTime + ' min cook</span>';
+    if (recipe.servings) metaHtml += '<span>👥 ' + recipe.servings + ' servings</span>';
+    if (recipe.cuisine) metaHtml += '<span>🌍 ' + escapeHtml(recipe.cuisine) + '</span>';
+    document.getElementById('modal-meta').innerHTML = metaHtml;
+
+    // Ingredients
+    const ingredientsList = document.getElementById('modal-ingredients');
+    if (recipe.ingredients && recipe.ingredients.length > 0) {
+        ingredientsList.innerHTML = recipe.ingredients.map(ing =>
+            '<li>' + escapeHtml(ing) + '</li>'
+        ).join('');
+    } else {
+        ingredientsList.innerHTML = '<li>No ingredients listed</li>';
+    }
+
+    // Instructions
+    const instructionsList = document.getElementById('modal-instructions');
+    if (recipe.instructions && recipe.instructions.length > 0) {
+        instructionsList.innerHTML = recipe.instructions.map(inst => {
+            const text = typeof inst === 'string' ? inst : (inst.instruction || '');
+            return '<li>' + escapeHtml(text) + '</li>';
+        }).join('');
+    } else {
+        instructionsList.innerHTML = '<li>No instructions available</li>';
+    }
+
+    // Show modal
+    modal.classList.add('active');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+
+    // Focus management
+    modal.querySelector('.modal-close').focus();
+}
+
+function closeRecipeModal() {
+    const modal = document.getElementById('recipe-modal');
+    modal.classList.remove('active');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+}
+
+// Utility functions for trending recipes
+function escapeHtml(text) {
+    if (!text) return '';
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+}
+
+function formatNumber(num) {
+    if (num >= 1000000) {
+        return (num / 1000000).toFixed(1) + 'M';
+    }
+    if (num >= 1000) {
+        return (num / 1000).toFixed(1) + 'K';
+    }
+    return num.toString();
+}
+
+function formatDifficulty(difficulty) {
+    const map = {
+        'BEGINNER': 'Easy',
+        'INTERMEDIATE': 'Medium',
+        'ADVANCED': 'Hard'
+    };
+    return map[difficulty] || 'Easy';
+}
