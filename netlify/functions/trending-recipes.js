@@ -4,11 +4,11 @@ const admin = require('firebase-admin');
 let db;
 function initializeFirebase() {
   if (!admin.apps.length) {
-    const serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT);
-    // Fix private key newlines that get escaped in environment variables
-    if (serviceAccount.private_key) {
-      serviceAccount.private_key = serviceAccount.private_key.replace(/\\n/g, '\n');
-    }
+    // Decode base64-encoded service account JSON
+    const base64 = process.env.FIREBASE_SERVICE_ACCOUNT_BASE64;
+    const json = Buffer.from(base64, 'base64').toString('utf8');
+    const serviceAccount = JSON.parse(json);
+
     admin.initializeApp({
       credential: admin.credential.cert(serviceAccount),
       projectId: 'recipeapp-13bdc'
